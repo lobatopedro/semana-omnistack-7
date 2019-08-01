@@ -1,0 +1,12 @@
+const multer = require('multer');
+const path = require('path');
+
+module.exports = {
+  // eslint-disable-next-line new-cap
+  storage: multer.diskStorage({
+    destination: path.resolve(__dirname, '..', '..', 'uploads'), // Destino onde os arquivos ficam salvos
+    filename(req, file, cb) {
+      cb(null, file.originalname);
+    },
+  }),
+};
